@@ -9,6 +9,7 @@ interface Props { rooms: RoomVM[]; labels: Labels; kufi: string; eyebrow: string
 
 function Visual({ card, room }: { card: CardVM; room: RoomVM }) {
   const v = card.visual;
+  if (v.kind === 'none') return null;
   if (v.kind === 'arch') {
     return (
       <div className="visual" aria-hidden="true">
@@ -19,20 +20,22 @@ function Visual({ card, room }: { card: CardVM; room: RoomVM }) {
       </div>
     );
   }
-  const device = v.kind === 'hand' ? 'phone' : v.kind;
+  if (v.kind === 'hand') {
+    return <div className="visual diagram" aria-hidden="true"><Hand /><small className="ltr">21 × (x, y, z) → 28</small></div>;
+  }
+  if (v.kind === 'image') {
+    return <figure className="visual pic"><img src={v.image} alt={v.title} loading="lazy" decoding="async" /></figure>;
+  }
   return (
-    <div className="visual" aria-hidden="true">
-      <div className={`device ${device}`}><div className="screen">
-        {v.image ? <img className="shot" src={v.image} alt="" loading="lazy" /> : v.kind === 'hand' ? <Hand /> : <img className="art" src={room.art.qamariya} width={320} height={160} alt="" loading="lazy" />}
-        {!v.image && <><b>{v.title}</b><small>{v.kind === 'hand' ? '21 × (x, y, z) → 28' : v.sub}</small></>}
-      </div></div>
-    </div>
+    <figure className="visual">
+      <div className={`device ${v.kind}`}><div className="screen"><img className="shot" src={v.image} alt={v.title} loading="lazy" decoding="async" /></div></div>
+    </figure>
   );
 }
 
 function Card({ card, room, i, labels }: { card: CardVM; room: RoomVM; i: number; labels: Labels }) {
   return (
-    <article className="card" style={{ '--i': i } as CSSProperties}>
+    <article className={`card${card.visual.kind === 'none' ? ' no-visual' : ''}`} style={{ '--i': i } as CSSProperties}>
       <div className="card-main">
         <div className="chips">
           {card.chips.map(c => <span key={c} className="chip">{c}</span>)}

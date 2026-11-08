@@ -16,6 +16,15 @@ export const doorArt = (style: DoorStyle) => ({
   qamariya: `/images/doors/qamariya-${style}.webp`
 });
 
+/** What a project shows next to its text. Real images only: without a cover image nothing is drawn (except the SignSense landmark diagram or the decorative arch, when chosen). */
+export type VisualKind = 'hand' | 'phone' | 'monitor' | 'arch' | 'image' | 'none';
+export function projectVisual(p: Pick<Project, 'visual' | 'cover_url'>): VisualKind {
+  if (p.visual === 'hand') return 'hand';
+  if (p.cover_url) return p.visual === 'phone' || p.visual === 'monitor' ? p.visual : 'image';
+  if (p.visual === 'arch') return 'arch';
+  return 'none';
+}
+
 export interface CardVM {
   key: string;
   title: string;
@@ -28,7 +37,7 @@ export interface CardVM {
   stack: string[];
   links: { href: string; label: string }[];
   details?: string;
-  visual: { kind: 'hand' | 'phone' | 'monitor' | 'arch'; image?: string; title: string; sub: string };
+  visual: { kind: VisualKind; image?: string; title: string; sub: string };
 }
 
 export interface RoomVM {
@@ -77,7 +86,7 @@ export function buildRooms(data: SiteData, lang: Lang): RoomVM[] {
       cards = [...xp, ...acts];
     } else {
       cards = data.projects.filter(p => p.doors.includes(door.id)).map<CardVM>(p => {
-        const kind = p.visual === 'hand' ? 'hand' : p.visual === 'monitor' ? 'monitor' : p.visual === 'phone' ? 'phone' : p.visual === 'arch' ? 'arch' : door.style === 'web' ? 'monitor' : 'phone';
+        const kind = projectVisual(p);
         const links = [
           p.repo_url ? { href: p.repo_url, label: ui.code } : null,
           p.demo_url ? { href: p.demo_url, label: ui.demo } : null

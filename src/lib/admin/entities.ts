@@ -72,10 +72,10 @@ export const ENTITIES: Record<string, EntityDef> = {
       { ...PRECISION, group: 'التواريخ والروابط' },
       { name: 'repo_url', type: 'url', label: 'رابط GitHub', group: 'التواريخ والروابط' },
       { name: 'demo_url', type: 'url', label: 'رابط تجربة مباشرة', group: 'التواريخ والروابط' },
-      { name: 'cover_url', type: 'image', label: 'صورة الغلاف (لقطة شاشة)', folder: 'projects', help: 'تظهر داخل إطار الهاتف أو الشاشة. يُفضّل لقطة شاشة طولية للتطبيقات.', group: 'الصور' },
+      { name: 'cover_url', type: 'image', label: 'صورة المشروع', folder: 'projects', help: 'صورة حقيقية من المشروع (لقطة شاشة أو تصميم عرض). إن تركتها فارغة لا تظهر أي صورة.', group: 'الصور' },
       { name: 'gallery', type: 'gallery', label: 'معرض الصور', folder: 'projects', help: 'صور إضافية تظهر في صفحة المشروع.', group: 'الصور' },
       { name: 'visual', type: 'select', label: 'شكل الإطار', group: 'الصور', options: [
-        { value: 'auto', label: 'تلقائي (حسب الباب)' }, { value: 'phone', label: 'هاتف' }, { value: 'monitor', label: 'شاشة' }, { value: 'hand', label: 'نقاط اليد (SignSense)' }, { value: 'arch', label: 'قوس صنعاني' }] },
+        { value: 'auto', label: 'الصورة كما هي (أو بدون صورة)' }, { value: 'phone', label: 'الصورة داخل إطار هاتف (للقطات الشاشة)' }, { value: 'monitor', label: 'الصورة داخل إطار شاشة (لمواقع الويب)' }, { value: 'hand', label: 'رسم نقاط اليد (SignSense)' }, { value: 'arch', label: 'قوس صنعاني للزينة' }] },
       ...STORY
     ]
   },

@@ -1,7 +1,7 @@
 import type { CSSProperties } from 'react';
-import { LOCALES, STATUS, UI, t, tl } from '@/lib/i18n';
+import { LOCALES, UI, t, tl } from '@/lib/i18n';
 import type { Lang, Project, SiteData } from '@/lib/types';
-import { COLOR_VARS, doorArt, projectChips, projectDate } from '@/lib/view';
+import { COLOR_VARS, doorArt, projectChips, projectDate, projectVisual } from '@/lib/view';
 import { Footer, Topbar, navLinks } from './SiteView';
 import Hand from './Hand';
 
@@ -13,12 +13,14 @@ export default function ProjectView({ data, lang, project: p }: { data: SiteData
   const paths = Object.fromEntries(LOCALES.map(l => [l, `/${l}/projects/${p.slug}`])) as Record<Lang, string>;
   const body = (t(p.body, lang) || t(p.summary, lang)).split(/\n\s*\n/).filter(Boolean);
   const built = tl(p.contribution, lang);
+  const kind = projectVisual(p);
+  const title = t(p.title, lang);
   const links = navLinks(data, lang).map(l => ({ ...l, href: `/${lang}${l.href}` }));
   return (
     <>
       <Topbar data={data} lang={lang} paths={paths} links={links} />
       <main className="proj" style={{ '--c': `var(${c.glass})`, '--c-text': `var(${c.text})` } as CSSProperties}>
-        <section className="proj-hero">
+        <section className={`proj-hero${kind === 'none' ? ' solo' : ''}`}>
           <div className="wrap">
             <div className="head">
               <a className="back" href={`/${lang}#door-${door?.id ?? ''}`}>{ui.allProjects}</a>
@@ -26,21 +28,25 @@ export default function ProjectView({ data, lang, project: p }: { data: SiteData
                 {projectChips(p, lang).map(x => <span key={x} className="chip">{x}</span>)}
                 {projectDate(p, lang) && <span className="chip plain">{projectDate(p, lang)}</span>}
               </div>
-              <h1>{t(p.title, lang)}</h1>
+              <h1>{title}</h1>
               {t(p.tagline, lang) && <p className="tagline">{t(p.tagline, lang)}</p>}
               <div className="links" style={{ display: 'flex', gap: 18, flexWrap: 'wrap' }}>
                 {p.repo_url && <a href={p.repo_url} target="_blank" rel="noopener noreferrer">{ui.code}</a>}
                 {p.demo_url && <a href={p.demo_url} target="_blank" rel="noopener noreferrer">{ui.demo}</a>}
               </div>
             </div>
-            <div className="visual" aria-hidden="true" style={{ minHeight: 320 }}>
-              <div className={`device ${door?.style === 'web' || p.visual === 'monitor' ? 'monitor' : 'phone'}`}>
-                <div className="screen">
-                  {p.cover_url ? <img className="shot" src={p.cover_url} alt="" />
-                    : <>{p.visual === 'hand' ? <Hand /> : <img className="art" src={art.qamariya} width={320} height={160} alt="" />}<b>{t(p.title, lang)}</b><small>{p.visual === 'hand' ? '21 × (x, y, z) → 28' : t(STATUS[p.status], lang)}</small></>}
-                </div>
+            {kind === 'hand' && <div className="visual diagram" aria-hidden="true" style={{ minHeight: 320 }}><Hand /><small className="ltr">21 × (x, y, z) → 28</small></div>}
+            {kind === 'arch' && (
+              <div className="visual" aria-hidden="true" style={{ minHeight: 320 }}>
+                <div className="device archway"><div className="screen"><img className="art" src={art.qamariya} width={320} height={160} alt="" /><b>{title}</b></div></div>
               </div>
-            </div>
+            )}
+            {kind === 'image' && <figure className="visual pic"><a href={p.cover_url!} target="_blank" rel="noopener"><img src={p.cover_url!} alt={title} /></a></figure>}
+            {(kind === 'phone' || kind === 'monitor') && (
+              <figure className="visual" style={{ minHeight: 320 }}>
+                <a className={`device ${kind}`} href={p.cover_url!} target="_blank" rel="noopener"><span className="screen"><img className="shot" src={p.cover_url!} alt={title} /></span></a>
+              </figure>
+            )}
           </div>
         </section>
         <div className="wrap proj-body">
@@ -48,7 +54,7 @@ export default function ProjectView({ data, lang, project: p }: { data: SiteData
             <h2>{ui.problem}</h2>
             {body.map((x, i) => <p key={i}>{x}</p>)}
             {built.length > 0 && <><h2>{ui.whatIBuilt}</h2><ul className="bullets">{built.map(b => <li key={b}>{b}</li>)}</ul></>}
-            {p.gallery.length > 0 && <div className="gallery">{p.gallery.map(g => <img key={g} src={g} alt="" loading="lazy" />)}</div>}
+            {p.gallery.length > 0 && <div className="gallery">{p.gallery.map((g, i) => <a key={g} href={g} target="_blank" rel="noopener"><img src={g} alt={`${title} (${i + 1})`} loading="lazy" decoding="async" /></a>)}</div>}
           </div>
           <aside className="proj-side">
             {p.metrics.length > 0 && (

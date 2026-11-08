@@ -145,11 +145,11 @@ export const seed: SiteData = {
         id: ['Membangun seluruh aplikasi sendiri dengan Flutter, Riverpod, dan GoRouter', 'Deteksi penyakit tanaman dari foto daun, dan diagnosis ternak berdasarkan jenis, umur, dan lama sakit, lengkap dengan tingkat risiko dan langkah berikutnya', 'Asisten chat AI untuk pertanyaan pertanian, ditenagai Gemini API', 'Firebase Authentication dan Cloud Firestore untuk akun dan data']
       },
       team: { en: 'Solo', ar: 'فردي', id: 'Mandiri' }, award: null, start_date: '2026-06-01', end_date: '2026-07-01', date_precision: 'month',
-      stack: ['Flutter', 'Dart', 'Gemini API', 'Firebase', 'Riverpod', 'GoRouter'], metrics: [],
-      repo_url: 'https://github.com/mmyjw48-web/FarmGuardAI', demo_url: null, cover_url: null, gallery: [],
+      stack: ['Flutter', 'Dart', 'Gemini API', 'Firebase', 'SQLite', 'Riverpod', 'GoRouter'], metrics: [],
+      repo_url: 'https://github.com/mmyjw48-web/FarmGuardAI', demo_url: null, cover_url: '/images/projects/farmguardai-showcase.webp', gallery: [],
       in_story: true, story_text: { en: 'Built FarmGuardAI on my own with the Gemini API', ar: 'بنيت FarmGuardAI وحدي باستخدام Gemini API', id: 'Membangun FarmGuardAI sendiri dengan Gemini API' } },
 
-    { ...base, id: id(103), slug: 'skillbridge-oman', sort: 30, featured: false, doors: ['ai'], status: 'hackathon', visual: 'monitor',
+    { ...base, id: id(103), slug: 'skillbridge-oman', sort: 30, featured: false, doors: ['ai'], status: 'hackathon', visual: 'auto',
       title: { en: 'SkillBridge Oman', ar: 'SkillBridge Oman', id: 'SkillBridge Oman' },
       tagline: { en: 'Evidence-based skill matching for junior tech roles', ar: 'مطابقة المهارات بالأدلة لوظائف التقنية للمبتدئين', id: 'Pencocokan kompetensi berbasis bukti untuk posisi teknologi junior' },
       summary: {
@@ -164,9 +164,9 @@ export const seed: SiteData = {
       },
       contribution: { en: [], ar: [], id: [] },
       team: { en: 'Team', ar: 'فريق', id: 'Tim' }, award: null, start_date: null, end_date: null, date_precision: 'month',
-      stack: [], metrics: [], repo_url: null, demo_url: null, cover_url: null, gallery: [] },
+      stack: [], metrics: [], repo_url: null, demo_url: null, cover_url: '/images/projects/skillbridge-poster.webp', gallery: [] },
 
-    { ...base, id: id(104), slug: 'smart-student-uin-salatiga', sort: 40, featured: false, doors: ['mobile'], status: 'prototype', visual: 'auto',
+    { ...base, id: id(104), slug: 'smart-student-uin-salatiga', sort: 40, featured: false, doors: ['mobile'], status: 'prototype', visual: 'phone',
       title: { en: 'Smart Student UIN Salatiga', ar: 'Smart Student UIN Salatiga', id: 'Smart Student UIN Salatiga' },
       tagline: { en: 'Digital services app for UIN Salatiga students', ar: 'تطبيق خدمات رقمية لطلاب UIN سالاتيغا', id: 'Aplikasi layanan digital untuk mahasiswa UIN Salatiga' },
       summary: {
@@ -181,7 +181,7 @@ export const seed: SiteData = {
         id: ['Pengingat', 'Pengelolaan dokumen KRS dengan pengiriman email', 'Riwayat IPK', 'Dukungan bahasa Arab', 'Perbaikan navigasi dan pengujian']
       },
       team: { en: 'Team', ar: 'فريق', id: 'Tim' }, award: null, start_date: '2026-04-01', end_date: '2026-06-01', date_precision: 'month',
-      stack: ['Flutter', 'Dart'], metrics: [], repo_url: 'https://github.com/mmyjw48-web/Smart-Student-UIN-Salatiga', demo_url: null, cover_url: null, gallery: [] },
+      stack: ['Flutter', 'Dart'], metrics: [], repo_url: 'https://github.com/mmyjw48-web/Smart-Student-UIN-Salatiga', demo_url: null, cover_url: '/images/projects/smart-student-home.webp', gallery: ['/images/projects/smart-student-team.webp', '/images/projects/smart-student-gpa-history.webp'] },
 
     { ...base, id: id(105), slug: 'layananku', sort: 50, featured: false, doors: ['mobile'], status: 'concept', visual: 'auto',
       title: { en: 'LayananKu', ar: 'LayananKu', id: 'LayananKu' },
@@ -193,7 +193,7 @@ export const seed: SiteData = {
       },
       body: { en: '', ar: '', id: '' }, contribution: { en: [], ar: [], id: [] },
       team: null, award: null, start_date: null, end_date: null, date_precision: 'month',
-      stack: ['Flutter'], metrics: [], repo_url: null, demo_url: null, cover_url: null, gallery: [] },
+      stack: ['Flutter'], metrics: [], repo_url: null, demo_url: null, cover_url: '/images/projects/layananku-poster.webp', gallery: [] },
 
     { ...base, id: id(106), slug: 'lestari-tani', sort: 60, featured: false, doors: ['web'], status: 'completed', visual: 'auto',
       title: { en: 'Lestari Tani', ar: 'Lestari Tani', id: 'Lestari Tani' },
