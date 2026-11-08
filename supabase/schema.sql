@@ -26,6 +26,7 @@ grant execute on function public.is_admin() to anon, authenticated;
 
 create or replace function public.touch_updated_at() returns trigger language plpgsql as $$
 begin new.updated_at = now(); return new; end $$;
+grant execute on function public.touch_updated_at() to anon, authenticated;
 
 -- ---------------------------------------------------------------------
 -- Content tables. Text that is translated is stored as {"en": "...", "ar": "...", "id": "..."}.
