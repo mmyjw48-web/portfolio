@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "IBM Plex Sans Arabic", "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --color-sand-50: #FBF8F3;
+  --color-sand-100: #F2EEE7;
+  --color-sand-200: #E9E2D6;
+  --color-sand-300: #D6CBB9;
+  --color-ink: #22150F;
+  --color-muted: #6B5B50;
+  --color-saffron: #F2B23A;
+  --color-saffron-dark: #8C5903;
+  --color-ruby: #B03A31;
+  --color-emerald: #1A6B4F;
+  --color-night: #0C0D17;
+}
+
+body { background: var(--color-sand-100); color: var(--color-ink); }
+:focus-visible { outline: 2px solid var(--color-saffron-dark); outline-offset: 2px; }
+.field { width: 100%; border-radius: 0.6rem; border: 1px solid var(--color-sand-300); background: #fff; padding: 0.55rem 0.75rem; font-size: 0.95rem; }
+.field:focus { outline: none; border-color: var(--color-saffron-dark); box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-saffron) 35%, transparent); }
+textarea.field { min-height: 7rem; line-height: 1.6; }
+.btn-a { display: inline-flex; align-items: center; justify-content: center; gap: .4rem; border-radius: 999px; padding: .5rem 1.05rem; font-weight: 600; font-size: .9rem; border: 1px solid var(--color-sand-300); background: #fff; cursor: pointer; text-decoration: none; transition: background-color .15s, border-color .15s; }
+.btn-a:hover { border-color: var(--color-ink); }
+.btn-a.primary { background: var(--color-ink); color: var(--color-sand-100); border-color: var(--color-ink); }
+.btn-a.primary:hover { background: #3a261c; }
+.btn-a.danger { color: var(--color-ruby); border-color: color-mix(in srgb, var(--color-ruby) 40%, transparent); }
+.btn-a:disabled { opacity: .55; cursor: not-allowed; }
+.card-a { background: #fff; border: 1px solid var(--color-sand-300); border-radius: 1rem; }
