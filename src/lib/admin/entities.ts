@@ -228,5 +228,6 @@ export const PROFILE_FIELDS: FieldDef[] = [
   { name: 'contact_title', type: 'i18n', label: 'عنوان قسم التواصل', group: 'التواصل' },
   { name: 'contact_sub', type: 'i18n', label: 'نص قسم التواصل', group: 'التواصل' },
   { name: 'seo_title', type: 'i18n', label: 'عنوان الصفحة في محركات البحث', group: 'محركات البحث' },
-  { name: 'seo_description', type: 'i18nText', label: 'وصف الصفحة في محركات البحث', help: 'جملة أو جملتان.', group: 'محركات البحث' }
+  { name: 'seo_description', type: 'i18nText', label: 'وصف الصفحة في محركات البحث', help: 'جملة أو جملتان.', group: 'محركات البحث' },
+  { name: 'seo_keywords', type: 'i18nList', label: 'كلمات البحث (أسماؤك)', help: 'كل سطر اسم أو كلمة يبحث بها الناس عنك في Google، مثل: محمد ناصر ميجو.', group: 'محركات البحث' }
 ];

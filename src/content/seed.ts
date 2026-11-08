@@ -63,9 +63,14 @@ export const seed: SiteData = {
     contact_sub: { en: 'I reply in English, Arabic or Indonesian.', ar: 'أردّ بالعربية أو الإنجليزية أو الإندونيسية.', id: 'Saya membalas dalam bahasa Indonesia, Inggris, atau Arab.' },
     seo_title: { en: 'Mohammed Nasser Mijo · AI & mobile apps', ar: 'محمد ناصر ميجو · الذكاء الاصطناعي وتطبيقات الجوال', id: 'Mohammed Nasser Mijo · AI & aplikasi mobile' },
     seo_description: {
-      en: 'IT student at UIN Salatiga building computer vision and LLM-powered mobile apps. Projects, experience, awards and contact.',
-      ar: 'طالب تقنية معلومات في UIN سالاتيغا يبني تطبيقات جوال تعتمد على الرؤية الحاسوبية والنماذج اللغوية. المشاريع والخبرات والجوائز ووسائل التواصل.',
-      id: 'Mahasiswa TI di UIN Salatiga yang membangun aplikasi mobile berbasis computer vision dan LLM. Proyek, pengalaman, prestasi, dan kontak.'
+      en: 'Mohammed Nasser Salem Mijo: IT student at UIN Salatiga building computer vision and LLM-powered mobile apps. Projects, experience, awards and contact.',
+      ar: 'محمد ناصر سالم ميجو: طالب تقنية معلومات في UIN سالاتيغا يبني تطبيقات جوال تعتمد على الرؤية الحاسوبية والنماذج اللغوية. المشاريع والخبرات والجوائز ووسائل التواصل.',
+      id: 'Mohammed Nasser Salem Mijo: mahasiswa TI di UIN Salatiga yang membangun aplikasi mobile berbasis computer vision dan LLM. Proyek, pengalaman, prestasi, dan kontak.'
+    },
+    seo_keywords: {
+      en: ['Mohammed Nasser', 'Mohammed Mijo', 'Mohammed Nasser Salem', 'Mohammed Nasser Salem Mijo', 'Mohammed Nasser Mijo'],
+      ar: ['محمد ناصر', 'محمد ميجو', 'محمد ناصر سالم', 'محمد ناصر سالم ميجو', 'محمد ناصر ميجو'],
+      id: ['Mohammed Nasser', 'Mohammed Mijo', 'Mohammed Nasser Salem', 'Mohammed Nasser Salem Mijo', 'Mohammed Nasser Mijo']
     }
   },
 
@@ -164,7 +169,7 @@ export const seed: SiteData = {
       },
       contribution: { en: [], ar: [], id: [] },
       team: { en: 'Team', ar: 'فريق', id: 'Tim' }, award: null, start_date: null, end_date: null, date_precision: 'month',
-      stack: [], metrics: [], repo_url: null, demo_url: null, cover_url: '/images/projects/skillbridge-poster.webp', gallery: [] },
+      stack: [], metrics: [], repo_url: null, demo_url: null, cover_url: '/images/projects/skillbridge.webp', gallery: [] },
 
     { ...base, id: id(104), slug: 'smart-student-uin-salatiga', sort: 40, featured: false, doors: ['mobile'], status: 'prototype', visual: 'phone',
       title: { en: 'Smart Student UIN Salatiga', ar: 'Smart Student UIN Salatiga', id: 'Smart Student UIN Salatiga' },
@@ -193,7 +198,7 @@ export const seed: SiteData = {
       },
       body: { en: '', ar: '', id: '' }, contribution: { en: [], ar: [], id: [] },
       team: null, award: null, start_date: null, end_date: null, date_precision: 'month',
-      stack: ['Flutter'], metrics: [], repo_url: null, demo_url: null, cover_url: '/images/projects/layananku-poster.webp', gallery: [] },
+      stack: ['Flutter'], metrics: [], repo_url: null, demo_url: null, cover_url: '/images/projects/layananku.webp', gallery: [] },
 
     { ...base, id: id(106), slug: 'lestari-tani', sort: 60, featured: false, doors: ['web'], status: 'completed', visual: 'auto',
       title: { en: 'Lestari Tani', ar: 'Lestari Tani', id: 'Lestari Tani' },

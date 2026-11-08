@@ -6,6 +6,8 @@ Personal portfolio with a built-in content dashboard. Visitors see a trilingual 
 - **Data, sign-in, files:** Supabase (Postgres with Row Level Security, Auth, Storage)
 - **Hosting:** Vercel (free plan is enough)
 
+Live site: https://mohammed-nasser-mijo.vercel.app · Dashboard: https://mohammed-nasser-mijo.vercel.app/admin
+
 Arabic guides: [docs/DEPLOY_AR.md](docs/DEPLOY_AR.md) (one-time setup) and [docs/ADMIN_GUIDE_AR.md](docs/ADMIN_GUIDE_AR.md) (day-to-day editing).
 
 ---

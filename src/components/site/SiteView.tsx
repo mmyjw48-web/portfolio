@@ -338,7 +338,8 @@ export default function SiteView({ data, lang, preview }: { data: SiteData; lang
 
   const p = data.profile;
   const jsonLd = {
-    '@context': 'https://schema.org', '@type': 'Person', name: p.name.en, alternateName: p.name.ar,
+    '@context': 'https://schema.org', '@type': 'Person', name: p.name.en,
+    alternateName: [...new Set([p.name.ar, ...(['en', 'ar', 'id'] as const).flatMap(l => p.seo_keywords?.[l] ?? [])].filter((x): x is string => !!x && x !== p.name.en))],
     jobTitle: 'Information Technology student', email: p.email ? `mailto:${p.email}` : undefined,
     affiliation: data.education[0] ? { '@type': 'CollegeOrUniversity', name: data.education[0].institution.en } : undefined,
     sameAs: [p.linkedin_url, p.github_url].filter(Boolean), knowsLanguage: ['ar', 'id', 'en']

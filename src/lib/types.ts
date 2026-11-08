@@ -36,6 +36,8 @@ export interface Profile {
   contact_sub: I18n;
   seo_title: I18n;
   seo_description: I18n;
+  /** Names and phrases people search for, per language. */
+  seo_keywords?: I18nList | null;
 }
 
 export type SectionKey = 'about' | 'projects' | 'experience' | 'leadership' | 'achievements' | 'skills' | 'education' | 'story' | 'contact';

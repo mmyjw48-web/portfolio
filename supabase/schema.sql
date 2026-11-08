@@ -39,9 +39,12 @@ create table if not exists public.profile (
   lead jsonb, about jsonb, facts jsonb, languages jsonb, location jsonb,
   email text, whatsapp text, phone_display text, linkedin_url text, github_url text,
   photo_url text, cv_url text,
-  contact_title jsonb, contact_sub jsonb, seo_title jsonb, seo_description jsonb,
+  contact_title jsonb, contact_sub jsonb, seo_title jsonb, seo_description jsonb, seo_keywords jsonb,
   updated_at timestamptz not null default now()
 );
+
+-- columns added after the first release (safe to run again)
+alter table public.profile add column if not exists seo_keywords jsonb;
 
 create table if not exists public.sections (
   key text primary key check (key in ('about','projects','experience','leadership','achievements','skills','education','story','contact')),
