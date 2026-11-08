@@ -78,7 +78,7 @@ Environment variables (`.env.example`):
 | `NEXT_PUBLIC_SUPABASE_URL` | Supabase → Project Settings → API → Project URL |
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | The **anon / publishable** key (never the service-role / secret key) |
 | `NEXT_PUBLIC_SITE_URL` | e.g. `https://mohammed-mijo.vercel.app` (used for SEO, sitemap and password-reset links) |
-| `CRON_SECRET` | Any long random string; Vercel sends it to `/api/keepalive` |
+| `CRON_SECRET` | Optional. Any long random string; Vercel sends it to `/api/keepalive`, which then rejects other callers |
 
 ---
 
@@ -86,7 +86,7 @@ Environment variables (`.env.example`):
 
 1. **Supabase:** new project → SQL Editor → run `supabase/schema.sql`, then `supabase/seed.sql`.
 2. **Supabase Auth:** disable new sign-ups → Users → *Add user* `mmyjw48@gmail.com` with a strong password and *Auto confirm* → URL configuration: Site URL = your Vercel URL, Redirect URL = `https://<your-site>/admin/auth/callback`.
-3. **Vercel:** import the GitHub repo → add the four environment variables → Deploy.
+3. **Vercel:** import the GitHub repo → add the environment variables (the first three; `CRON_SECRET` is optional) → Deploy.
 4. Open `/admin`, sign in, edit something, and check that the public page shows it.
 
 ---

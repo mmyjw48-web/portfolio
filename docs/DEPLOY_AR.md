@@ -9,6 +9,8 @@
 ## الجزء الأول: Supabase (قاعدة البيانات وتسجيل الدخول والصور)
 
 ### 1) إنشاء المشروع
+
+> عند الإنشاء: اترك **Enable Data API** مفعّلًا، ويمكنك إطفاء **Automatically expose new tables** (ملف الجداول يعطي الصلاحيات اللازمة بنفسه).
 1. ادخل [supabase.com/dashboard](https://supabase.com/dashboard) ← **New project**.
 2. الاسم: `portfolio`. المنطقة (Region): **Southeast Asia (Singapore)** لأنها الأقرب لإندونيسيا.
 3. اكتب كلمة مرور لقاعدة البيانات واحفظها في مكان آمن (الموقع لا يحتاجها، لكنها مهمة لك).
@@ -40,14 +42,14 @@
 
 1. ادخل [vercel.com/new](https://vercel.com/new) ← اختر المستودع **mmyjw48-web/portfolio** ← **Import**.
 2. **Project Name**: هذا الاسم يصبح رابط موقعك. مثال: `mohammed-mijo` ← يصبح الموقع `https://mohammed-mijo.vercel.app`.
-3. افتح **Environment Variables** وأضف أربعة متغيرات:
+3. افتح **Environment Variables** وأضف المتغيرات (الثلاثة الأولى هي المهمة):
 
 | Name | Value |
 | --- | --- |
 | `NEXT_PUBLIC_SUPABASE_URL` | الـ Project URL من الخطوة 4 |
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | مفتاح anon / publishable من الخطوة 4 |
 | `NEXT_PUBLIC_SITE_URL` | رابط موقعك، مثل `https://mohammed-mijo.vercel.app` |
-| `CRON_SECRET` | أي نص عشوائي طويل (مثلًا 40 حرفًا ورقمًا مختلطة) |
+| `CRON_SECRET` | (اختياري) أي نص عشوائي طويل |
 
 4. اضغط **Deploy** وانتظر حتى تظهر **Congratulations**.
 
